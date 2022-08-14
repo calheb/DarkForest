@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     float damageTimer;
     float healAmount;
     float healTimer;
+    public Collider2D collision;
 
     // Start is called before the first frame update
     void Start()
@@ -16,12 +17,22 @@ public class PlayerHealth : MonoBehaviour
         health = maxHealth;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision) //if enemies are within the 'absord shield', the player will heal with the TakeHealth method
     {
         if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
         {
-            TakeHealth(0.3f);
+            Debug.Log("player healing...");
+            TakeHealth(0.1f);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)//if enemies collide with the player collider, the player will take damage
+    {
+        if (collision.collider.tag == "Enemy")
+        {
+            Debug.Log("player takes damage...");
             TakeDamage(1f);
+
         }
     }
 

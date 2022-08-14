@@ -23,6 +23,7 @@ public class ShieldScript : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
         {
+            Debug.Log("enemy taking damage...");
             enemyComponent.TakeDamage(1);
             //Scoring.CurrentScore += 1;
             //scoreText.text = "Score: " + Scoring.CurrentScore;
