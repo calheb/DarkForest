@@ -10,6 +10,8 @@ public class PlayerHealth : MonoBehaviour
     float healAmount;
     float healTimer;
     public Collider2D collision;
+    public GameObject bloodMagic;
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +23,16 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
         {
-            Debug.Log("player healing...");
+            //Debug.Log("player healing...");
+            Debug.Log("blood magic animation enabled...");
             TakeHealth(0.1f);
+            bloodMagic.SetActive(true);
         }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Debug.Log("blood magic animation disabled...");
+        bloodMagic.SetActive(false);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)//if enemies collide with the player collider, the player will take damage

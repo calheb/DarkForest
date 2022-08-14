@@ -14,12 +14,11 @@ public class Enemy : MonoBehaviour
     private Animator enemyAnimator;
     public AudioSource enemyAudio;
 
+    [SerializeField] TextMeshProUGUI scoreText;
 
     float damageTimer;
 
     [SerializeField] float health, maxHealth = 10f;
-
-    public UnityEvent<GameObject> OnHitWithReference;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +26,8 @@ public class Enemy : MonoBehaviour
         rb = this.GetComponent<Rigidbody2D>();
         enemyAnimator = this.GetComponent<Animator>();
         health = maxHealth;
+
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     public void TakeDamage(float damageAmount)
@@ -39,6 +40,8 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            Debug.Log("killing clone...");
+            Destroy(this.gameObject);
             StartCoroutine(waiter());
         }
     }
@@ -47,7 +50,9 @@ public class Enemy : MonoBehaviour
 
         enemyAudio.Play();
         yield return new WaitForSeconds(0.50f);
-        Destroy(this.gameObject);
+        Scoring.CurrentScore += 1;
+        scoreText.text = "Score: " + Scoring.CurrentScore;
+        //Destroy(gameObject);
     }
     // Update is called once per frame
     void Update()
@@ -72,8 +77,8 @@ public class Enemy : MonoBehaviour
         {
             transform.localScale = new Vector3(2.5f, 2.5f, 1.0f) * (flip ? -1: 1);
         }
-
     }
+
     private void FixedUpdate()
     {
         moveCharacter(movement);

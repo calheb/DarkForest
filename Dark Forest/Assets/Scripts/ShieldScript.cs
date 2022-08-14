@@ -34,6 +34,7 @@ public class ShieldScript : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
         {
+            Debug.Log("adding to score...");
             Scoring.CurrentScore += 1;
             scoreText.text = "Score: " + Scoring.CurrentScore;
         }
