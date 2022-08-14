@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     float healTimer;
     public Collider2D collision;
     public GameObject bloodMagic;
+    public GameObject deathMenuUI;
 
 
     // Start is called before the first frame update
@@ -63,6 +64,8 @@ public class PlayerHealth : MonoBehaviour
         }
         if (health <= 0)
         {
+            deathMenuUI.SetActive(true);
+            Time.timeScale = 0f;
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             StartCoroutine(waiter());
         }
