@@ -42,20 +42,25 @@ public class Enemy : MonoBehaviour
         }
         if (health <= 0)
         {
+            //Debug.Log("adding to score...");
+            //Scoring.CurrentScore += 1;
+            //scoreText.text = "Score: " + Scoring.CurrentScore;
+
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             Debug.Log("killing clone...");
+            enemyAnimator.Play("skeleton_death");
             Destroy(this.gameObject);
-            StartCoroutine(waiter());
+            enemyAudio.Play();
+            //StartCoroutine(waiter());
+            //Destroy(this.gameObject);
         }
     }
     IEnumerator waiter()
     {
-
-        enemyAudio.Play();
-        yield return new WaitForSeconds(0.50f);
-        Scoring.CurrentScore += 1;
-        scoreText.text = "Score: " + Scoring.CurrentScore;
-        //Destroy(gameObject);
+        enemyAnimator.Play("skeleton_death");
+        Destroy(this.gameObject);
+        yield return new WaitForSeconds(0.05f);
+        //Destroy(this.gameObject);
     }
     // Update is called once per frame
     void Update()
