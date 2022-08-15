@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     public bool flip;
     private Animator enemyAnimator;
     public AudioSource enemyAudio;
+    public GameObject bloodEffect;
 
     [SerializeField] TextMeshProUGUI scoreText;
 
@@ -36,6 +37,8 @@ public class Enemy : MonoBehaviour
         {
             health -= damageAmount;
             damageTimer = 1;
+            //bloodEffect = GameObject.FindWithTag("bloodeffect");
+            bloodEffect.SetActive(true);
         }
         if (health <= 0)
         {

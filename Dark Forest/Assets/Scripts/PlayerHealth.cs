@@ -12,6 +12,9 @@ public class PlayerHealth : MonoBehaviour
     public Collider2D collision;
     public GameObject bloodMagic;
     public GameObject deathMenuUI;
+    public AudioSource playerHitSound;
+    public AudioSource bloodDrainSound;
+    public Animator playerAnimator;
 
 
     // Start is called before the first frame update
@@ -28,6 +31,8 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("blood magic animation enabled...");
             TakeHealth(0.1f);
             bloodMagic.SetActive(true);
+            bloodDrainSound.Play();
+
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -42,6 +47,7 @@ public class PlayerHealth : MonoBehaviour
         {
             Debug.Log("player takes damage...");
             TakeDamage(1f);
+            playerHitSound.Play();
 
         }
     }
@@ -64,8 +70,8 @@ public class PlayerHealth : MonoBehaviour
         }
         if (health <= 0)
         {
-            deathMenuUI.SetActive(true);
-            Time.timeScale = 0f;
+
+            playerAnimator.Play("player_death");
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             StartCoroutine(waiter());
         }
@@ -74,6 +80,8 @@ public class PlayerHealth : MonoBehaviour
     {
 
         yield return new WaitForSeconds(0.50f);
+        Time.timeScale = 0f;
+        deathMenuUI.SetActive(true);
         //Destroy(this.gameObject);
     }
 
