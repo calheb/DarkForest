@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject deathMenuUI;
     public GameObject optionsMenuUI;
+    public TextMeshProUGUI scoreText;
 
 
     // Update is called once per frame
@@ -43,6 +45,8 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
+        Scoring.CurrentScore = 0;
+        scoreText.text = "Score: " + Scoring.CurrentScore;
         Debug.Log("Loading menu...");
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");

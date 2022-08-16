@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class DeathMenu : MonoBehaviour
 {
     public GameObject deathMenuUI; //death menu
+    [SerializeField] TextMeshProUGUI scoreText;
 
     void Update()
     {
@@ -23,6 +25,8 @@ public class DeathMenu : MonoBehaviour
 
     public void LoadMenu() // brings up main menu
     {
+        Scoring.CurrentScore = 0;
+        scoreText.text = "Score: " + Scoring.CurrentScore;
         SceneManager.LoadScene("Menu");
     }
 
@@ -34,6 +38,8 @@ public class DeathMenu : MonoBehaviour
 
     public void PlayAgain() // reloads the main game scene 
     {
+        Scoring.CurrentScore = 0;
+        scoreText.text = "Score: " + Scoring.CurrentScore;
         Debug.Log("loading main scene...");
         //deathMenuUI.SetActive(false);
         Time.timeScale = 1f;
