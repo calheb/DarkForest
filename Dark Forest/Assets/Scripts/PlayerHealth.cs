@@ -30,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
             //Debug.Log("player healing...");
             Debug.Log("blood magic animation enabled...");
             TakeHealth(0.1f);
-            bloodMagic.SetActive(true);
+            //bloodMagic.SetActive(true);
             bloodDrainSound.Play();
 
         }
@@ -70,7 +70,8 @@ public class PlayerHealth : MonoBehaviour
         }
         if (health <= 0)
         {
-
+            ExpScript.currentLevel = 1;
+            ExpScript.currentExp = 0;
             playerAnimator.Play("player_death");
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             StartCoroutine(waiter());

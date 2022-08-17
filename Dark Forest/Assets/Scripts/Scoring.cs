@@ -10,6 +10,7 @@ public class Scoring : MonoBehaviour
 
     void Start()
     {
+        scoreText = GetComponentInChildren<TextMeshProUGUI>();
         scoreText.text = "Score: " + CurrentScore;
     }
 }

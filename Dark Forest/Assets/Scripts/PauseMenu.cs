@@ -45,6 +45,8 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
+        ExpScript.currentLevel = 1;
+        ExpScript.currentExp = 0;
         Scoring.CurrentScore = 0;
         scoreText.text = "Score: " + Scoring.CurrentScore;
         Debug.Log("Loading menu...");

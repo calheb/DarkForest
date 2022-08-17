@@ -15,11 +15,28 @@ public class Enemy : MonoBehaviour
     public AudioSource enemyAudio;
     public GameObject bloodEffect;
 
+    public GameObject gem;
+    public GameObject gemClone;
+    public Transform[] gemSpawnPoints;
+
+    public GameObject floatingPoints;
+    public GameObject fpClone;
+
+    public bool isDead = false;
+
+
+
     [SerializeField] TextMeshProUGUI scoreText;
 
     float damageTimer;
 
     [SerializeField] float health, maxHealth = 10f;
+
+
+    private void Awake()
+    {
+        GameObject fpClone = (GameObject)(Instantiate(floatingPoints, transform.position, Quaternion.identity));
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -29,43 +46,54 @@ public class Enemy : MonoBehaviour
         health = maxHealth;
 
         player = GameObject.FindWithTag("Player").transform;
+        floatingPoints = GameObject.FindWithTag("FloatingPoints");
     }
 
     public void TakeDamage(float damageAmount)
     {
-        if (damageTimer <= 0)
+        if (damageTimer <= 0 && isDead == false)
         {
             health -= damageAmount;
             damageTimer = 1;
             //bloodEffect = GameObject.FindWithTag("bloodeffect");
             bloodEffect.SetActive(true);
+            if (floatingPoints != null)
+            {
+                Instantiate(floatingPoints, transform.position, Quaternion.identity);
+                GameObject points = Instantiate(floatingPoints, transform.position, Quaternion.identity) as GameObject;
+                points.transform.GetChild(0).GetComponent<TextMeshPro>().text = "250";
+            }
+
         }
         if (health <= 0)
         {
-            //Debug.Log("adding to score...");
-            //Scoring.CurrentScore += 1;
-            //scoreText.text = "Score: " + Scoring.CurrentScore;
-
+            isDead = true;
+            SpawnGem();
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             Debug.Log("killing clone...");
             enemyAnimator.Play("skeleton_death");
+            //enemyAudio.Play();
             Destroy(this.gameObject);
-            enemyAudio.Play();
-            //StartCoroutine(waiter());
-            //Destroy(this.gameObject);
         }
     }
-    IEnumerator waiter()
+
+    void SpawnGem()
     {
-        enemyAnimator.Play("skeleton_death");
-        Destroy(this.gameObject);
-        yield return new WaitForSeconds(0.05f);
-        //Destroy(this.gameObject);
+        int randomIndex = Random.Range(0, gemSpawnPoints.Length);
+        Transform gemSpawnPoint = gemSpawnPoints[randomIndex];
+        gemClone = Instantiate(gem, gemSpawnPoint.position, gemSpawnPoint.rotation);
     }
+
+
+    public void DestroyGameObject()
+    {
+        Destroy(gemClone, 6);
+    }
+
     // Update is called once per frame
     void Update()
     {
-
+        DestroyGameObject();
         if (damageTimer > 0)
         {
             damageTimer -= Time.deltaTime;
@@ -76,6 +104,7 @@ public class Enemy : MonoBehaviour
         direction.Normalize();
         movement = direction;
 
+        //flips direction of enemy based on player location
         if (transform.position.x < player.position.x)
         {
             transform.localScale = new Vector3(-2.5f, 2.5f, 1.0f) * (flip ? -1: 1);
