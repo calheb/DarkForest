@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class Enemy : MonoBehaviour
 {
     public Transform player;
-    public float moveSpeed = 5f;
+    public float moveSpeed = 3f;
     private Rigidbody2D rb;
     private Vector2 movement;
     public bool flip;
@@ -30,15 +30,8 @@ public class Enemy : MonoBehaviour
 
     float damageTimer;
 
-    [SerializeField] float health, maxHealth = 10f;
+    [SerializeField] float health, maxHealth = 3f;
 
-
-    private void Awake()
-    {
-        GameObject fpClone = (GameObject)(Instantiate(floatingPoints, transform.position, Quaternion.identity));
-    }
-
-    // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
@@ -54,14 +47,14 @@ public class Enemy : MonoBehaviour
         if (damageTimer <= 0 && isDead == false)
         {
             health -= damageAmount;
-            damageTimer = 1;
-            //bloodEffect = GameObject.FindWithTag("bloodeffect");
+            damageTimer = 0.5f;
             bloodEffect.SetActive(true);
             if (floatingPoints != null)
             {
                 Instantiate(floatingPoints, transform.position, Quaternion.identity);
                 GameObject points = Instantiate(floatingPoints, transform.position, Quaternion.identity) as GameObject;
-                points.transform.GetChild(0).GetComponent<TextMeshPro>().text = "250";
+                string damageString = damageAmount.ToString();
+                points.transform.GetChild(0).GetComponent<TextMeshPro>().text = damageString;
             }
 
         }

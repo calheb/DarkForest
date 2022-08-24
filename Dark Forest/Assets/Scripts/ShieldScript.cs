@@ -7,24 +7,14 @@ public class ShieldScript : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreText;
     public GameObject blood;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public static float damage = 1f;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
         {
             Debug.Log("enemy taking damage...");
-            enemyComponent.TakeDamage(1);
+            enemyComponent.TakeDamage(damage);
             //Scoring.CurrentScore += 1;
             //scoreText.text = "Score: " + Scoring.CurrentScore;
         }

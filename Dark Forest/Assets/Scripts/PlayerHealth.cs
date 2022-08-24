@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] public float health, maxHealth = 10;
+    [SerializeField] public static float health, maxHealth = 10;
     public Rigidbody2D rb;
     float damageTimer;
     float healAmount;

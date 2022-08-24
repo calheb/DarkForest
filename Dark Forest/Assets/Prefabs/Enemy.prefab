@@ -387,6 +387,12 @@ PrefabInstance:
       propertyPath: m_TagString
       value: FloatingPoints
       objectReference: {fileID: 0}
+    - target: {fileID: 5821695565290250361, guid: 598f846fa1b81ad4a884515a1f8df26b, type: 3}
+      propertyPath: m_text
+      value: '
+
+'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 598f846fa1b81ad4a884515a1f8df26b, type: 3}

@@ -44,6 +44,7 @@ public class GhostSpawner : MonoBehaviour
         if (spawnDelay > 0.3f)
         {
             spawnDelay -= 0.005f;
+            //Enemy.maxHealth += .005f;
         }
         else
         {

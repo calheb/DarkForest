@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     public Rigidbody2D player_RB2D;
     public Animator player_Animator;
-    [SerializeField] float playerSpeed = 4.0f;
+    public static float playerSpeed = 3.0f;
     public Collider2D playerCollider;
     void Start()
     {
