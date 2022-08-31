@@ -31,9 +31,9 @@
   <img src="https://github.com/ctrl-alt-caleb/DarkForest/blob/master/Images/Screenshot1.png" width="300" height="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="https://github.com/ctrl-alt-caleb/DarkForest/blob/master/Images/Screenshot2.png" width="300" height="150"><br><br>
   <img src="https://github.com/ctrl-alt-caleb/DarkForest/blob/master/Images/Screenshot3.png" width="300" height="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://github.com/ctrl-alt-caleb/DarkForest/blob/master/Images/Screenshot5.png" width="300" height="150">
-  <img src="https://github.com/ctrl-alt-caleb/DarkForest/blob/master/Images/Screenshot6.png" width="300" height="150">
-  <img src="https://github.com/ctrl-alt-caleb/DarkForest/blob/master/Images/Screenshot7.png" width="300" height="150">
+  <img src="https://github.com/ctrl-alt-caleb/DarkForest/blob/master/Images/Screenshot5.png" width="300" height="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://github.com/ctrl-alt-caleb/DarkForest/blob/master/Images/Screenshot6.png" width="300" height="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://github.com/ctrl-alt-caleb/DarkForest/blob/master/Images/Screenshot7.png" width="300" height="150">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="https://github.com/ctrl-alt-caleb/DarkForest/blob/master/Images/Screenshot4.png" width="300" height="150"><br><br>
 </div>
 
