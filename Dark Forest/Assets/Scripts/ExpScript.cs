@@ -34,12 +34,15 @@ public class ExpScript : MonoBehaviour
 
         if (currentExp == maxExp)
         {
-            leveledUp = true;
-            currentLevel++;
-            ExpScript.currentExp = 0;
-            levelUpAudio.Play();
-            levelUp.SetActive(false);
-            levelUp.SetActive(true);
+            if (currentLevel < 10)
+            {
+                leveledUp = true;
+                currentLevel++;
+                ExpScript.currentExp = 0;
+                levelUpAudio.Play();
+                levelUp.SetActive(false);
+                levelUp.SetActive(true);
+            }
         }
         if (leveledUp)
         {

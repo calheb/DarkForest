@@ -15,7 +15,7 @@ public class LevelUpMenu : MonoBehaviour
     }
     public void Damage()
     {
-        ShieldScript.damage += 0.3f;
+        ShieldScript.damage += 0.10f;
         levelUpUI.SetActive(false);
         Time.timeScale = 1f;
     }
@@ -23,14 +23,14 @@ public class LevelUpMenu : MonoBehaviour
     // Update is called once per frame
     public void Stamina()
     {
-        PlayerHealth.maxHealth++;
+        PlayerHealth.maxHealth += 0.5f;
         levelUpUI.SetActive(false);
         Time.timeScale = 1f;
     }
 
     void Speed()
     {
-        Player.playerSpeed += 0.25f;
+        Player.playerSpeed += 0.15f;
         levelUpUI.SetActive(false);
         Time.timeScale = 1f;
     }
