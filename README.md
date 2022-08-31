@@ -18,7 +18,7 @@
 
 ---
 
- ## Screen Shots - Desktop
+ ## Screen Shots
 
 
 
