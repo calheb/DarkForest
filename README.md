@@ -12,7 +12,7 @@
 
 - [Description](#description)
 - [How To Use](#how-to-use)
-- [Screen Shots - Desktop](#screen-shots)
+- [Screen Shots](#screen-shots)
 - [Author Info](#author-info)
   
 
