@@ -1,4 +1,4 @@
-# DarkForest
+# Dark Forest
 
 <h3 align='left'>
   2D "bullet heaven" survival game made with C# in the Unity engine.
