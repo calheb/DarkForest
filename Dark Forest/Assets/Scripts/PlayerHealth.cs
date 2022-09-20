@@ -7,7 +7,6 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] public static float health, maxHealth = 10;
     public Rigidbody2D rb;
     float damageTimer;
-    float healAmount;
     float healTimer;
     public Collider2D collision;
     public GameObject bloodMagic;
@@ -30,7 +29,6 @@ public class PlayerHealth : MonoBehaviour
             //Debug.Log("player healing...");
             Debug.Log("blood magic animation enabled...");
             TakeHealth(0.1f);
-            //bloodMagic.SetActive(true);
             bloodDrainSound.Play();
 
         }
@@ -83,7 +81,6 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSeconds(0.50f);
         Time.timeScale = 0f;
         deathMenuUI.SetActive(true);
-        //Destroy(this.gameObject);
     }
 
     // Update is called once per frame

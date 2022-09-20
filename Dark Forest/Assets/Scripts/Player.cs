@@ -58,10 +58,6 @@ public class Player : MonoBehaviour
         {
             player_Animator.SetInteger("AnimState", 1);
         }
-        //else if (!Input.GetKeyDown(KeyCode.F))
-        //{
-        //    player_Animator.SetInteger("AnimState", 1);
-        //}
         
     }
 }

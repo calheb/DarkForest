@@ -15,8 +15,6 @@ public class ShieldScript : MonoBehaviour
         {
             Debug.Log("enemy taking damage...");
             enemyComponent.TakeDamage(damage);
-            //Scoring.CurrentScore += 1;
-            //scoreText.text = "Score: " + Scoring.CurrentScore;
         }
     }
 

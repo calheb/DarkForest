@@ -65,7 +65,6 @@ public class Enemy : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             Debug.Log("killing clone...");
             enemyAnimator.Play("skeleton_death");
-            //enemyAudio.Play();
             Destroy(this.gameObject);
         }
     }
