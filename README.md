@@ -71,13 +71,6 @@
 - Clone the project and build it in Unity 2021 or newer.
 - Released versions for Windows/Web : https://ctrl-alt-caleb.itch.io/dark-forest
 
-
-## Author Info
-
-- [LinkedIn](https://linkedin.com/in/calebhebert)
-- [Website](https://calebhebert.com)<br>
-
-
 [Back To The Top](#Dark-Forest)
 
 
