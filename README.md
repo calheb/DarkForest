@@ -2,7 +2,7 @@
 
 <h3 align='left'>
   A 2D "bullet heaven" survival game
-  <br><h4 align='left'>Dark Forest is currently available to play on Windows, and Web browsers.<h4>
+  <br><h4 align='left'>Dark Forest is currently available to play on Windows and the Web.<h4>
 <h3>
   
 ###
@@ -49,9 +49,4 @@
 ## Building From Source
 
 - Clone the project and build it in Unity 2021 or newer.
-- Released versions for Windows/Web : https://ctrl-alt-caleb.itch.io/dark-forest
-
-[Back To The Top](#Dark-Forest)
-
-
-
+- Released versions for Windows/Web : https://calheb.itch.io/dark-forest
